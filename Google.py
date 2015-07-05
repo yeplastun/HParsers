@@ -8,8 +8,7 @@ import re
 
 def getGoogleLinks(query):
 	url = "http://www.google.com/search?&q="+query
-	r = requests.get(url)
-	doc = r.text
+	doc = requests.get(url).text
 	soup = BeautifulSoup(doc,'html.parser') # получили html документ поисковой выдачи
 	soup = soup.body
 	links = []
@@ -17,6 +16,6 @@ def getGoogleLinks(query):
 		tag = i.find('a')
 		links.append(tag['href'])
 	pattern = re.compile('http.+&sa')
-	results = map(lambda s: pattern.search(s).group()[:-3] if pattern.search(s) else "Wrong url",links)
-	results = list(filter(lambda x: False if x == "Wrong url" else True, results))
+	results = map(lambda s: pattern.search(s).group()[:-3] if pattern.search(s) else "",links)
+	results = list(filter(lambda x: False if x == "" else True, results))
 	return results

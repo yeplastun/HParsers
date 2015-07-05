@@ -2,7 +2,7 @@
 from bs4 import BeautifulSoup
 import requests
 import re
-import Google
+from Google import getGoogleLinks
 
 # encode: utf-8 -> bytes
 # decode: bytes -> utf-8
@@ -10,4 +10,8 @@ import Google
 artist = 'Eminem'
 track = 'Lose Yourself'
 
-term = ('site:www.shazam.com'+' '+artist+' '+track).replace(' ','+')
+term = ('site:www.shazam.com'+' '+artist+' '+track)
+
+links = getGoogleLinks(term)
+for link in links:
+	requests.get(link).text
