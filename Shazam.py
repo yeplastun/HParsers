@@ -7,8 +7,6 @@ from Google import getGoogleLinks
 # encode: utf-8 -> bytes
 # decode: bytes -> utf-8
 
-artist = 'Eminem'
-track = 'Lose Yourself'
 def getTrackTags(artist, track):
 	term = ('site:www.shazam.com'+' '+artist+' '+track)
 	links = getGoogleLinks(term)
@@ -27,6 +25,7 @@ def getTrackTags(artist, track):
 			tags = int(counts)
 			return counts
 	return('No data')
+
 
 
 
