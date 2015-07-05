@@ -15,6 +15,7 @@ album.getInfo
 track.getInfo
 
 """
+
 #Account:
 USER = "alla_cobra"
 API_KEY = "f3bd5b0d18985e1b0d4bdc458879a39a"
@@ -40,7 +41,3 @@ def getTrackScrobbles(artist,title):
 	res = urlopen(url)
 	soup = BeautifulSoup(res,"html.parser")
 	return soup.track.playcount.get_text()
-
-url = artistQuery('Pink Floyd')
-page = urlopen(url)
-soup = BeautifulSoup(page,'html.parser')
