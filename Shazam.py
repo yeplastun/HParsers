@@ -28,4 +28,4 @@ def getTrackTags(artist, track):
             counts = soup.string.replace(',', '')
             tags = int(counts)
             return tags
-    return('No data')
+    return 'No data'

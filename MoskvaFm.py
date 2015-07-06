@@ -2,18 +2,17 @@ import re
 from Google import getGoogleLinks
 from requests import get
 from bs4 import BeautifulSoup
+from urllib.parse import quote
 # from mechanize import Browser
-
-artist = 'Eminem'
-track = 'Lose Yourself'
 
 
 def getRotation(artist, track):
     query = 'site:www.moskva.fm' + ' ' + artist + ' ' + track
     links = getGoogleLinks(query)
-    regex = 'http://www.moskva.fm/artist/' + artist + '/song_[0-9]+$'
+    regex = 'http://www.moskva.fm/artist/' + quote(artist) + '/song_[0-9]+$'
     pattern = re.compile(regex, re.IGNORECASE)
     for link in links:
+        print(link)
         if pattern.match(link) == None:
             continue
         soup = BeautifulSoup(get(link).text, 'html.parser')
@@ -24,6 +23,17 @@ def getRotation(artist, track):
         sample = re.compile(regex, re.IGNORECASE)
         if sample.match(tempTrack):
             soup = soup.body
-            # soup.find('span', {a})
+            regex = '.+ротаций.+'
+            sample = re.compile(regex, re.IGNORECASE)
+            line = str(soup.find(text=sample))
+            regex = '[0-9]+'
+            sample = re.compile(regex, re.IGNORECASE)
+            res = sample.search(line)
+            rotation = int(res.group(0))
+            return rotation
+        return 'No data'
 
-getRotation(artist, track)
+
+artist = 'Анжелика Агурбаш'
+track = 'Я Не Вижу Солнца За Ночью'
+print(getRotation(artist, track))
