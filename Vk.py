@@ -6,8 +6,8 @@ import json
 
 
 def getVkMembers(artist):
-    login = 'yeplastun@gmail.com'
-    password = 'Getthe55996600'
+    login = ''
+    password = ''
     vk = vk_api.VkApi(login, password)
     try:
         vk.authorization()
