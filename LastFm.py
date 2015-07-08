@@ -47,3 +47,5 @@ def getTrackScrobbles(artist, title):
     res = urlopen(url)
     soup = BeautifulSoup(res, "html.parser")
     return soup.track.playcount.get_text()
+
+print(getArtistScrobbles('Земфира'))

@@ -28,5 +28,3 @@ def getTrackTags(artist, track):
             tags = int(counts)
             return tags
     return 'No data'
-
-print(getTrackTags('Земфира', 'До Свидания...'))
