@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import soundcloud
+from json import dumps
 
 
 def getSoundCloudFollowers(artist):
