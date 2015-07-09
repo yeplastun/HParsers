@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from bs4 import BeautifulSoup
 from urllib.parse import urlencode
 from urllib.request import urlopen

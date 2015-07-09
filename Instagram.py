@@ -2,10 +2,9 @@
 
 from requests import get
 
-access_token = '19212580.1677ed0.6f908ddb35564fac80cd1927abc7084e'
-
 
 def getInstFollowers(artist):
+    access_token = '19212580.1677ed0.6f908ddb35564fac80cd1927abc7084e'
     url = 'https://api.instagram.com/v1/users/'
     params = {'access_token': access_token, 'q': artist, 'count': 5}
     req = get(url + 'search', params)

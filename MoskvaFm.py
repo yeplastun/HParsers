@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 import re
 from Google import getGoogleLinks
 from requests import get
