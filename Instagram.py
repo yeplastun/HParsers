@@ -18,3 +18,5 @@ def getInstFollowers(artist):
         return 'No matching users'
     else:
         return max(res)
+
+print(getInstFollowers('lana del rey'))
